@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 
 	while ((a = getline(&tst.line, &len, tst.fb)) != -1)
 	{
+		tst.line[a - 1] = '\0';
 		tst.ln++;
 		tst.arg = strtok(tst.line, " ");
 		tst.data = strtok(NULL, " ");
