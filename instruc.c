@@ -18,7 +18,7 @@ int instruction(void)
 		{"add", add},
 		{NULL, NULL}
 	};
-	for (i = 0; op[i].opcode;i++)
+	for (i = 0; op[i].opcode; i++)
 	{
 		if (strcmp(tst.arg, op[i].opcode) == 0)
 		{
