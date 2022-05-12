@@ -9,17 +9,21 @@
 
 void pop(stack_t **stack, unsigned int line)
 {
-	stack_t *temp;
+	stack_t *temp, temp2;
 
-	if (*stack == NULL)
+	temp = *stack;
+	if (temp == NULL)
 	{
-		fprintf(stderr, "L<%d>:can't pint, stack empty\n", line);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line);
+		freedom(1);
 	}
 	else
 	{
-		temp = (*stack)->next;
-		free(*stack);
+		temp2 = (*temp).next;
+		if (temp2 != NULL)
+			(*temp2).prev = NULL;
+		free(temp);
+		temp = temp2;
 		*stack = temp;
 	}
 }
