@@ -2,19 +2,22 @@
 /**
  *pall - function that pall
  *@stack: stack
+ *@line_number:line number
  * Return: void
  */
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *h = *stack;
+	size_t count = 0;
+	(void)line_number;
 
-	if (*stack)
-		temp = *stack;
-	else
-		exit(EXIT_FAILURE);
-	while (temp != NULL)
+	if (!stack)
+		return;
+	while (h != NULL)
 	{
-		fprintf(stdout, "%d\n", temp->n);
-		temp = temp->next;
+		printf("%i\n", (*h).n);
+		h = (*h).next;
+		count++;
 	}
+
 }
