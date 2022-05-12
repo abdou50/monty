@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
 	size_t len = 0;
 	int a;
-
+	
 	help();
 	if (argc != 2)
 	{
@@ -18,19 +18,18 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	tst.fb = fopen(argv[1], "r");
+	itst.fb = fopen(argv[1], "r");
 	if (tst.fb == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	while ((a = getline(&tst.line, &len, tst.fb)) != -1)
 	{
 		tst.line[a - 1] = '\0';
 		tst.ln++;
-		tst.arg = strtok(tst.line, " ");
-		tst.data = strtok(NULL, " ");
+		tst.arg = strtok(tst.line, " \t\a\n");
+		tst.data = strtok(NULL, " \t\a\n");
 
 		if (tst.arg != NULL)
 		{
