@@ -8,11 +8,12 @@
  */
 void pint(stack_t **stack, unsigned int line)
 {
+	stack_t *head = *stack;
 
-	if (*stack == NULL)
+	if (!head)
 	{
-		fprintf(stderr, "L<%d>:can't pint, stack empty\n", line);
+		fprintf(stderr, "L%u:can't pint, stack empty\n", line);
 		freedom(1);
 	}
-	fprintf(stdout, "%i\n", (*stack)->n);
+	printf("%i\n", (*head).n);
 }
