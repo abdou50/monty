@@ -11,6 +11,9 @@ void pop(stack_t **stack, unsigned int line)
 {
 	stack_t *temp, *temp2;
 
+	(void)stack;
+	(void)ln;
+
 	temp = *stack;
 
 	if (temp != NULL) 
