@@ -10,13 +10,8 @@ int main(int argc, char **argv)
 {
 	size_t len = 0;
 	int a;
-	tst.fb = NULL;
-	tst.line = NULL;
-	tst.ln = 0;
-	tst.stack = NULL;
-	tst.arg = NULL;
-	tst.data = NULL;
 
+	help();
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -30,7 +25,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	while((a = getline(&tst.line, &len, tst.fb)) != -1)
+	while ((a = getline(&tst.line, &len, tst.fb)) != -1)
 	{
 		tst.ln++;
 		tst.arg = strtok(tst.line, " ");
@@ -45,11 +40,12 @@ int main(int argc, char **argv)
 					if (instruction() != 0)
 					{
 						fprintf(stderr, "L%u: unknown instruction %s\n", tst.ln, tst.arg);
+						freedom(1);
 					}
 				}
 			}
 		}
 	}
-
+	freedom(0);
 	return (EXIT_SUCCESS);
 }
