@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 		{
 			if (tst.arg[0] != '#')
 			{
-				if (strcmp(tst.arg, "nop"))
+				if (strcmp(tst.arg, "nop") != 0)
 				{
 					if (instruction() != 0)
 					{
