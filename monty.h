@@ -55,6 +55,7 @@ typedef struct typfile
 extern file tst;
 file tst;
 
+void help(void);
 void freedom(int status);
 void free_stack(void);
 int instruction(void);
