@@ -17,7 +17,7 @@ void pop(stack_t **stack, unsigned int line)
 		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line);
 		freedom(1);
 	}
-	else
+	else 
 	{
 		temp2 = (*temp).next;
 		if (temp2 != NULL)
